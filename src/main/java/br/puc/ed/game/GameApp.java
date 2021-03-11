@@ -14,6 +14,10 @@ public class GameApp {
     painelPontuacao.adicionar(new RegistroPontuacao("João", 43));
     painelPontuacao.imprimir();
     painelPontuacao.adicionar(new RegistroPontuacao("Rafael", 35));
+    painelPontuacao.adicionar(new RegistroPontuacao("Lucas", 28));
     painelPontuacao.imprimir();
+    painelPontuacao.remover(3);
+    painelPontuacao.imprimir();
+    
   }
 }

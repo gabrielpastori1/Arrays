@@ -4,9 +4,11 @@ public class PainelPontuacao {
 
     private RegistroPontuacao[] registros;
     private int quantidadeRegistros;
+    private int capacidade;
 
-    public PainelPontuacao(int capacidade) {
-        registros = new RegistroPontuacao[capacidade];
+    public PainelPontuacao(int capacity) {
+        registros = new RegistroPontuacao[capacity];
+        capacidade = capacity;
         quantidadeRegistros = 0;
     }
 
@@ -33,5 +35,19 @@ public class PainelPontuacao {
                 .println(i + ": " + registros[i].getNome() + " / " + registros[i].getPontuacao());
         }
         System.out.println();
+    }
+
+    public RegistroPontuacao remover(int index) {
+      RegistroPontuacao[] newRegistros = new RegistroPontuacao[capacidade];
+      int count = 0;
+      for(int i = 0; i < quantidadeRegistros; i++) {
+        if(i == index) continue;
+        newRegistros[count] = registros[i];
+        count++;
+      }
+      RegistroPontuacao response = registros[index];
+      registros = newRegistros;
+      quantidadeRegistros--;
+      return response;
     }
 }
