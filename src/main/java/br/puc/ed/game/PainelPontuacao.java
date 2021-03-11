@@ -29,6 +29,26 @@ public class PainelPontuacao {
         }
     }
 
+    public void add(RegistroPontuacao rp){
+      if(quantidadeRegistros < registros.length){
+        registros[quantidadeRegistros] = rp;
+        quantidadeRegistros++;
+      }else{
+        int pontuacao = rp.getPontuacao();
+        int index = -1; 
+        int menor = 10^10;
+
+        for(int i = 0; i < registros.length; i++){
+          if(index == -1 || registros[i].getPontuacao() < menor){
+            index = i;
+            menor = registros[i].getPontuacao();
+          }
+        }
+        registros[index] = rp;
+
+      }
+    }
+
     public void imprimir() {
         for (int i = 0; i < quantidadeRegistros; i++) {
             System.out
